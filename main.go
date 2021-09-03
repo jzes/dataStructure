@@ -7,25 +7,22 @@ import (
 )
 
 func main() {
-	jose := linkedlist.Node{
-		Value: "jose",
+	root := linkedlist.Node{
+		Value: "root",
 	}
-	vanessa := linkedlist.Node{
-		Value: "vanessa",
+	values := [5]string{
+		"first",
+		"second",
+		"third",
+		"forth",
 	}
-	davi := linkedlist.Node{
-		Value: "davi",
+	for _, v := range values {
+		root.Push(&linkedlist.Node{
+			Value: v,
+		})
 	}
-	isis := linkedlist.Node{
-		Value: "isis",
-	}
-	jose.Push(&vanessa)
-	jose.Push(&davi)
-	jose.Push(&isis)
-	jose.Push(&linkedlist.Node{
-		Value: "isabela",
-	})
 
-	fmt.Println(davi)
-
+	fmt.Println(root)
+	found := root.GetByValue("forth")
+	fmt.Println(found)
 }

@@ -18,6 +18,16 @@ func (n *Node) Push(nn *Node) {
 	n.Next.Push(nn)
 }
 
+func (n *Node) GetByValue(value string) *Node {
+	if n.Value == value {
+		return n
+	}
+	if n.Next == nil {
+		return nil
+	}
+	return n.Next.GetByValue(value)
+}
+
 func (n Node) String() string {
 	var sb strings.Builder
 	for n.Next != nil {
